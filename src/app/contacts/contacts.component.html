@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="contact-list">
+        <app-contact-list [contactList]="contactList" [selectedContact]="selectedContact" (getContactDetails)="getContactDetails($event)" (openModal)="openDialog()"></app-contact-list>
+    </div>
+    <div class="contact-details">
+      <app-contact-details [contactDetails]="contactDetails" (openModal)="openDialog()"  [data]="data"></app-contact-details>
+    </div>
+    <div class="loader" *ngIf="loader">
+      <div class="lds-ripple"><div></div><div></div></div>
+    </div>
+</div>

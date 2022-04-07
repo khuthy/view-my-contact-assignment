@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* 
+Importing Poppin Fonts as required
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    
+    font-family: 'Poppins' !important;
+}
+html, body { height: 100%; }
+body { margin: 0; }
+
+.mat-toolbar {
+    background: #ffffff;
+    box-shadow: 0 0 16px #ddd;
+    position: relative;
+    z-index: 11;
+}
+.app-toolbar {
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.mat-list-base {
+    z-index: 1000 !important;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: .3em !important;
+}

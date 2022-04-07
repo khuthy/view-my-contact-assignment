@@ -1,0 +1,96 @@
+<div class="header-modal">
+  <h1 mat-dialog-title>Add New Contact</h1>
+  <button mat-icon-button color="primary" mat-button [mat-dialog-close]="{role: 'cancel', data: null}" aria-label="Example icon button with a heart icon">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" >
+    <div mat-dialog-content>
+          <div class="first">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label> First Name</mat-label>
+                <input formControlName="firstName" matInput placeholder="First Name">
+              </mat-form-field>
+              <div *ngIf="field['firstName'].errors && field['firstName'].touched" class="invalid-feedback">
+                <div *ngIf="field['firstName'].errors['required']">First Name is required</div>
+                <div *ngIf="field['firstName'].errors['maxlength']">
+                  First Name must not exceed 50 characters
+                </div>
+              </div>
+            </div>
+            
+
+
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label> Last Name</mat-label>
+                <input formControlName="lastName" matInput placeholder="Last Name">
+              </mat-form-field>
+              <div *ngIf="field['lastName'].errors && field['lastName'].touched " class="invalid-feedback">
+                <div *ngIf="field['lastName'].errors['required']">Last Name is required</div>
+                <div *ngIf="field['lastName'].errors['maxlength']">
+                  Last Name must not exceed 50 characters
+                </div>
+              </div>
+            </div>
+          </div>
+           
+
+
+              <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email Address</mat-label>
+                  <input formControlName="email" matInput placeholder="Email Address">
+                </mat-form-field>
+                <div *ngIf="field['email'].errors && field['email'].touched " class="invalid-feedback">
+                  <div *ngIf="field['email'].errors['required']">Email Address is required</div>
+                  <div *ngIf="field['email'].errors['email']">
+                    Email address format is wrong
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <mat-form-field appearance="outline">
+                  <mat-label> Cellphone number</mat-label>
+                  <input formControlName="cellNumber" type="tel" matInput placeholder="Cell Phone Number">
+                </mat-form-field>
+                <div *ngIf="field['cellNumber'].errors && field['cellNumber'].touched" class="invalid-feedback">
+                  <div *ngIf="field['cellNumber'].errors['required']">Cell Phone Number is required</div>
+                  <div *ngIf="field['cellNumber'].errors['minlength']">Cell Phone number must not be less than 10 digits</div>
+                  <div *ngIf="field['cellNumber'].errors['maxlength']">Cell Phone number must not be greater than 10 digits</div>
+                  <div *ngIf="field['cellNumber'].errors['pattern']">Only digits are allowed here.</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Physical Address</mat-label>
+                    <textarea formControlName="address" matInput placeholder="Enter your Physical Address"></textarea>
+                  </mat-form-field>
+                  <mat-hint>{{contactForm.get('address')?.value.length }}/255</mat-hint>
+                  <div *ngIf="field['address'].errors && field['address'].touched" class="invalid-feedback">
+                    <div *ngIf="field['address'].errors['required']">Physical Address is required</div>
+                    <div *ngIf="field['address'].errors['maxlength']">Exceeded character limit. expected 255 characters.</div>
+                   
+                  </div>
+              
+              </div>
+              <div class="form-group">
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Biography</mat-label>
+                    <textarea formControlName="biography" matInput placeholder="Bio"></textarea>
+                  </mat-form-field>
+                  <mat-hint>{{contactForm.get('biography')?.value.length }}/255</mat-hint>
+                  <div *ngIf="field['biography'].errors && field['biography'].touched" class="invalid-feedback">
+                    <div *ngIf="field['biography'].errors['required']"> biography is required</div>
+                    <div *ngIf="field['biography'].errors['maxlength']">Exceeded character limit. expected 255 characters.</div>
+                   
+                  </div>
+              </div>
+            </div>
+            <div style="margin-top: 1em; display: flex; justify-content: flex-end;">
+              <button mat-flat-button color="primary" type="submit" [disabled]="contactForm.invalid">Submit</button>
+            </div>
+           
+</form>

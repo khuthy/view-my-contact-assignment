@@ -1,0 +1,13 @@
+<div class="about-container">
+    <h2>About Me</h2>
+    <mat-card class="about-card">
+        <mat-card-title>{{user.FullName}}</mat-card-title>
+        
+        <mat-card-content>
+          <div  class="email">
+            <mat-card-subtitle>Email:</mat-card-subtitle>
+            <p ><a href="mailto: {{user.EmailAddress}}">{{user.EmailAddress}}</a></p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+</div>

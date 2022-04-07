@@ -1,0 +1,31 @@
+.about-container {
+    margin: 0 auto;
+    max-width: 90%;
+    padding-top: 3em;
+}
+
+.about-card {
+    width: 40%;
+    box-shadow: 0 0 16px #ddd;
+    margin-top: 2em !important;
+    padding: 3em;
+
+    mat-card-subtitle {
+        margin: 0 !important;
+        font-size: 12px;
+    }
+
+   
+
+}
+
+.email {
+
+    margin-top: 3em !important;
+
+    a {
+        text-decoration: none;
+        color: #747373;
+        font-size: 13px;
+    }
+}

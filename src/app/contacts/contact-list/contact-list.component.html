@@ -1,0 +1,18 @@
+<div class="list" id="list">
+    <div class="search-container">
+        <input type="search" [(ngModel)] ="filter" class="search" placeholder="Search">
+        <button (click)="openModal.emit()" mat-flat-button>Add</button>
+    </div>
+    <div class="title">
+        <h3>Contacts</h3>
+    </div>
+    <div class="item"  *ngFor="let contact of contactList | searchFilter: 'firstName' : 'lastName' : 'cellNumber' :  filter; let i=index;" (click)="getContactDetails.emit(contact)" [ngClass]="{ 'selected': selectedContact === contact}">
+        <div class="avatar">
+            <h2>{{contact.firstName  | titlecase | slice:0:1}} {{contact.lastName  | titlecase | slice:0:1}}</h2>
+        </div>
+        <div class="label">
+            <h3>{{contact.firstName | titlecase}} {{contact.lastName | titlecase}}</h3>
+            <p>{{contact.cellNumber }}</p>
+        </div>
+    </div>
+</div>
